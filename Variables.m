@@ -89,3 +89,10 @@ Amb.rhoAir = 1.164; %Density air at 30C, kg/m^3 [WolframAlpha]
 Amb.vAir = 1.87E-5; %Dynamic viscosity of air at 30C, Pa s, [WolframAlpha]
 Amb.SolT = 0;       %Solar time
 Amb.SolAlt =0;      %Solar Altitude Angle, degrees
+
+
+%% Set values to locate the sun based on time of day, tilt of collector, direction of collector.
+%Also finds solar incident angle on collector based on tilt angle and time
+%of day
+[Amb.Zen , Amb.Az, Amb.SolAlt, Amb.dec, Amb.solT, Amb.hrAng, Collect.incident] = WhereIsSun([Collect.lat, Collect.lng], [Amb.day, Amb.t], Collect.tilt, Collect.Az);
+
